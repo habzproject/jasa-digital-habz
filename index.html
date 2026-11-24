@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JASA DIGITAL HABZ — Harga Pelajar, Kualitas Pro. 1 Hari Jadi.</title>
+
+    <!-- Google Fonts: Azonix / Aquire Display Stack + Rajdhani / Orbitron + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['"Azonix"', '"Aquire"', '"Orbitron"', '"Rajdhani"', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        habz: {
+                            dark: '#0F0F1A',
+                            surface: '#17172A',
+                            card: '#1D1D35',
+                            purple: '#6C5CE7',
+                            purpleDeep: '#4B3CC4',
+                            cyan: '#00D2FF',
+                            cyanDark: '#0099C2',
+                            yellow: '#FFE600',
+                            yellowDark: '#D9C200',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        /* ==================== 3D VISUAL SYSTEM & DESIGN TOKENS ==================== */
+        :root {
+            --bg-dark: #0F0F1A;
+            --accent-purple: #6C5CE7;
+            --accent-cyan: #00D2FF;
+            --accent-yellow: #FFE600;
+            --text-white: #FFFFFF;
+        }
+
+        body {
+            background-color: #0F0F1A;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 12% 10%, rgba(108, 92, 231, 0.24) 0%, transparent 40%),
+                radial-gradient(circle at 88% 18%, rgba(0, 210, 255, 0.16) 0%, transparent 38%),
+                radial-gradient(circle at 50% 78%, rgba(108, 92, 231, 0.14) 0%, transparent 45%);
+        }
+
+        /* 3D Section Heading with Depth + Glow */
+        .heading-3d {
+            letter-spacing: 0.03em;
+            text-shadow:
+                0 1px 0 rgba(43, 33, 122, 0.85),
+                0 2px 0 rgba(15, 15, 26, 0.85),
+                0 6px 16px rgba(108, 92, 231, 0.32),
+                0 0 12px rgba(0, 210, 255, 0.16);
+        }
+
+        .heading-3d-cyan {
+            letter-spacing: 0.04em;
+            text-shadow:
+                0 2px 0 rgba(0, 96, 128, 0.9),
+                0 10px 26px rgba(0, 210, 255, 0.35);
+        }
+
+        /* 3D Card Container & Interactive Pointer Tilt */
+        .tilt-stage {
+            perspective: 1100px;
+        }
+
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+            box-shadow:
+                0 14px 30px rgba(0, 0, 0, 0.48),
+                0 6px 0 rgba(20, 20, 40, 0.95),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .card-3d:hover {
+            box-shadow:
+                0 24px 46px rgba(108, 92, 231, 0.28),
+                0 10px 0 rgba(36, 29, 94, 0.95),
+                0 0 24px rgba(0, 210, 255, 0.14),
+                inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        }
+
+        .card-3d-featured {
+            box-shadow:
+                0 20px 44px rgba(108, 92, 231, 0.36),
+                0 8px 0 rgba(53, 41, 148, 1),
+                0 0 32px rgba(0, 210, 255, 0.2),
+                inset 0 1px 0 rgba(255, 230, 0, 0.35);
+        }
+
+        /* Tactile 3D Pushable Buttons */
+        .btn-3d {
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.15s ease;
+        }
+
+        .btn-3d:hover {
+            filter: brightness(1.06);
+        }
+
+        .btn-3d:active {
+            transform: translateY(4px);
+        }
+
+        .btn-3d-purple {
+            background: linear-gradient(180deg, #7E6FF2 0%, #6C5CE7 100%);
+            box-shadow: 0 5px 0 #3E31A8, 0 12px 24px rgba(108, 92, 231, 0.42);
+        }
+
+        .btn-3d-purple:active {
+            box-shadow: 0 1px 0 #3E31A8, 0 4px 10px rgba(108, 92, 231, 0.35);
+        }
+
+        .btn-3d-cyan {
+            background: linear-gradient(180deg, #33DCFF 0%, #00D2FF 100%);
+            color: #0F0F1A;
+            box-shadow: 0 5px 0 #0089AD, 0 12px 24px rgba(0, 210, 255, 0.35);
+        }
+
+        .btn-3d-cyan:active {
+            box-shadow: 0 1px 0 #0089AD, 0 4px 10px rgba(0, 210, 255, 0.28);
+        }
+
+        .btn-3d-yellow {
+            background: linear-gradient(180deg, #FFF04D 0%, #FFE600 100%);
+            color: #0F0F1A;
+            box-shadow: 0 5px 0 #B8A400, 0 12px 24px rgba(255, 230, 0, 0.3);
+        }
+
+        .btn-3d-yellow:active {
+            box-shadow: 0 1px 0 #B8A400, 0 4px 10px rgba(255, 230, 0, 0.25);
+        }
+
+        .btn-3d-green {
+            background: linear-gradient(180deg, #2EE673 0%, #16BA52 100%);
+            color: #FFFFFF;
+            box-shadow: 0 5px 0 #0D7A35, 0 12px 24px rgba(22, 186, 82, 0.35);
+        }
+
+        .btn-3d-green:active {
+            box-shadow: 0 1px 0 #0D7A35, 0 4px 10px rgba(22, 186, 82, 0.28);
+        }
+
+        .btn-3d-orange {
+            background: linear-gradient(180deg, #FF9436 0%, #FF7A00 100%);
+            color: #FFFFFF;
+            box-shadow: 0 5px 0 #A84F00, 0 12px 24px rgba(255, 122, 0, 0.35);
+        }
+
+        .btn-3d-orange:active {
+            box-shadow: 0 1px 0 #A84F00, 0 4px 10px rgba(255, 122, 0, 0.28);
+        }
+
+        .btn-3d-red {
+            background: linear-gradient(180deg, #FF4D4D 0%, #E02424 100%);
+            color: #FFFFFF;
+            box-shadow: 0 5px 0 #8F1111, 0 12px 24px rgba(224, 36, 36, 0.35);
+        }
+
+        .btn-3d-red:active {
+            box-shadow: 0 1px 0 #8F1111, 0 4px 10px rgba(224, 36, 36, 0.28);
+        }
+
+        .btn-3d-dark {
+            background: linear-gradient(180deg, #272742 0%, #19192B 100%);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 5px 0 #0A0A12, 0 10px 20px rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-3d-dark:active {
+            box-shadow: 0 1px 0 #0A0A12;
+        }
+
+        /* 3D Smartphone Frame */
+        .phone-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(108, 92, 231, 0.35),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+        }
+
+        /* Smooth Scroll Reveal */
+        .reveal-3d {
+            opacity: 0;
+            transform: translateY(26px) scale(0.985);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-3d.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .float-slow {
+            animation: floatSlow 4.2s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F0F1A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6C5CE7;
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-habz-cyan selection:text-habz-dark">
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toastBox" class="fixed top-20 right-4 z-[90] flex flex-col gap-2 max-w-xs sm:max-w-sm pointer-events-none"></div>
+
+    <!-- ==================== TOP NAVBAR (ALWAYS HAS [PEMBELI] & [ADMIN]) ==================== -->
+    <header class="sticky top-0 z-50 bg-habz-dark/90 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+            <!-- Brand Logo -->
+            <a href="#top" onclick="switchMode('buyer')" class="flex items-center gap-2.5 min-w-0 group">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-habz-purple via-habz-cyan to-habz-yellow p-[2px] shadow-lg shadow-habz-purple/30 shrink-0">
+                    <div class="w-full h-full rounded-[14px] bg-habz-dark flex items-center justify-center font-heading font-bold text-base sm:text-lg text-habz-yellow">
+                        H
+                    </div>
+                </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-1.5">
+                        <span class="font-heading font-bold text-sm sm:text-lg tracking-tight text-white truncate">JASA DIGITAL HABZ</span>
+                        <span id="liveSyncIndicator" class="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-habz-cyan/15 text-habz-cyan border border-habz-cyan/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-habz-cyan animate-ping"></span> Firestore Live
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-habz-cyan font-semibold truncate">Harga Pelajar, Kualitas Pro. 1 Hari Jadi.</p>
+                </div>
+            </a>
+
+            <!-- Quick Nav Links (Desktop Only) -->
+            <nav id="buyerNavLinks" class="hidden lg:flex items-center gap-6 text-sm font-semibold text-white/80">
+                <a href="#layanan" class="hover:text-habz-cyan transition-colors">Layanan</a>
+                <a href="#portofolio" class="hover:text-habz-cyan transition-colors">Portofolio</a>
+                <a href="#ulasan" class="hover:text-habz-cyan transition-colors">Ulasan</a>
+                <a href="#cara-order" class="hover:text-habz-cyan transition-colors">Cara Order</a>
+            </nav>
+
+            <!-- Mode Switch Buttons: [PEMBELI] and [ADMIN] -->
+            <div class="flex items-center gap-1.5 sm:gap-2 bg-habz-surface p-1 rounded-2xl border border-white/10 shrink-0">
+                <button
+                    type="button"
+                    id="btnModeBuyer"
+                    onclick="switchMode('buyer')"
+                    class="btn-3d btn-3d-purple px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-bag-shopping text-habz-yellow"></i>
+                    <span>PEMBELI</span>
+                </button>
+                <button
+                    type="button"
+                    id="btnModeAdmin"
+                    onclick="switchMode('admin')"
+                    class="btn-3d btn-3d-dark px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm text-white/85 hover:text-habz-yellow flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-user-shield text-habz-cyan"></i>
+                    <span>ADMIN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- MODE PEMBELI (BUYER VIEW)                                             -->
+    <!-- ===================================================================== -->
+    <main id="buyerView" class="relative">
+
+        <!-- ==================== HERO SECTION + 3D PHONE MOCKUP ==================== -->
+        <section id="top" class="relative pt-8 pb-16 sm:pt-14 sm:pb-24 overflow-hidden">
+            <!-- Decorative 3D Orbs -->
+            <div class="w-72 h-72 rounded-full bg-habz-purple/25 blur-3xl absolute -top-16 -left-20 pointer-events-none"></div>
+            <div class="w-80 h-80 rounded-full bg-habz-cyan/15 blur-3xl absolute top-24 -right-24 pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-habz-purple/25 border border-habz-cyan/40 text-habz-yellow font-heading font-bold text-[11px] sm:text-xs tracking-wider uppercase shadow-lg shadow-habz-purple/20">
+                        <i class="fa-solid fa-bolt text-habz-cyan"></i>
+                        <span>MULAI 25RB - 1 HARI JADI - BISA PILIH DOMAIN</span>
+                    </div>
+
+                    <h1 class="heading-3d font-heading font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight leading-snug text-white">
+                        JASA DIGITAL <span class="text-habz-cyan">HABZ</span>
+                    </h1>
+
+                    <p class="text-base sm:text-xl text-white/85 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Bikin Web, Landing Page, Link Bio, Undangan &amp; Benerin Web Error. <span class="text-habz-yellow font-bold">Harga Pelajar, Kualitas Pro.</span>
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1">
+                        <a
+                            href="https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20tanya%20jasa%20digital"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-3d btn-3d-yellow w-full sm:w-auto px-7 py-4 rounded-2xl font-heading font-bold text-base flex items-center justify-center gap-2.5"
+                        >
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Chat Sekarang</span>
+                        </a>
+
+                        <a
+                            href="#layanan"
+                            class="btn-3d btn-3d-dark w-full sm:w-auto px-6 py-4 rounded-2xl font-heading font-bold text-sm sm:text-base flex items-center justify-center gap-2 border border-habz-cyan/30 hover:border-habz-cyan"
+                        >
+                            <span>Lihat 5 Layanan</span>
+                            <i class="fa-solid fa-arrow-down text-habz-cyan"></i>
+                        </a>
+                    </div>
+
+                    <!-- Trust Highlights -->
+                    <div class="grid grid-cols-3 gap-2.5 sm:gap-4 pt-3 max-w-xl mx-auto lg:mx-0">
+                        <div class="bg-habz-surface/90 border border-white/10 rounded-2xl p-3 text-center lg:text-left">
+                            <p class="font-heading font-bold text-lg sm:text-2xl text-habz-yellow">25rb</p>
+                            <p class="text-[11px] sm:text-xs text-white/70">Mulai Harga Pelajar</p>
+                        </div>
+                        <div class="bg-habz-surface/90 border border-white/10 rounded-2xl p-3 text-center lg:text-left">
+                            <p class="font-heading font-bold text-lg sm:text-2xl text-habz-cyan">1 Hari</p>
+                            <p class="text-[11px] sm:text-xs text-white/70">Pengerjaan Kilat</p>
+                        </div>
+                        <div class="bg-habz-surface/90 border border-white/10 rounded-2xl p-3 text-center lg:text-left">
+                            <p class="font-heading font-bold text-sm sm:text-lg text-white leading-snug">08.00 - 21.00</p>
+                            <p class="text-[11px] sm:text-xs text-white/70">WIB • Seluruh Indo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right: 3D Interactive Smartphone Mockup -->
+                <div class="lg:col-span-5 flex justify-center tilt-stage">
+                    <div
+                        data-tilt="true"
+                        data-tilt-max="12"
+                        class="phone-3d float-slow w-[275px] sm:w-[305px] rounded-[42px] bg-gradient-to-b from-[#2A284A] to-[#131324] p-3 border-2 border-habz-cyan/40 cursor-pointer"
+                    >
+                        <!-- Speaker Notch -->
+                        <div class="w-24 h-5 bg-habz-dark rounded-b-2xl mx-auto mb-2 flex items-center justify-center gap-1.5">
+                            <span class="w-8 h-1 rounded-full bg-white/20"></span>
+                            <span class="w-2 h-2 rounded-full bg-habz-cyan/70"></span>
+                        </div>
+
+                        <!-- Phone Screen Content -->
+                        <div class="rounded-[30px] bg-habz-dark border border-white/10 p-4 space-y-3.5 overflow-hidden">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-0.5 rounded-full bg-habz-yellow text-habz-dark font-heading font-bold text-[10px]">
+                                    3D STUDIO HABZ
+                                </span>
+                                <span class="text-[11px] font-bold text-habz-cyan">
+                                    <i class="fa-solid fa-star text-habz-yellow"></i> 4.9/5
+                                </span>
+                            </div>
+
+                            <div class="rounded-2xl bg-gradient-to-br from-habz-purple/40 via-habz-surface to-habz-dark p-3.5 border border-habz-purple/50">
+                                <p class="text-[11px] text-habz-cyan font-bold">WEB WARUNG &amp; TOKO</p>
+                                <h3 class="font-heading font-bold text-lg text-white mt-0.5">Order Masuk WA</h3>
+                                <p class="text-[11px] text-white/75 mt-1">Keranjang otomatis, admin edit menu, domain bisa pilih Vercel / Netlify.</p>
+                            </div>
+
+                            <!-- Mini Service Pills inside 3D Phone -->
+                            <div class="space-y-2 text-xs">
+                                <div class="flex items-center justify-between bg-habz-surface px-3 py-2 rounded-xl border border-white/10">
+                                    <span class="font-semibold text-white">🔥 Web Warung</span>
+                                    <span class="font-heading font-bold text-habz-yellow">50rb - 400rb</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-habz-surface px-3 py-2 rounded-xl border border-white/10">
+                                    <span class="font-semibold text-white">🚀 Landing Page</span>
+                                    <span class="font-heading font-bold text-habz-cyan">50rb - 100rb</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-habz-surface px-3 py-2 rounded-xl border border-white/10">
+                                    <span class="font-semibold text-white">🔗 Link Bio Custom</span>
+                                    <span class="font-heading font-bold text-habz-yellow">25rb - 50rb</span>
+                                </div>
+                                <div class="flex items-center justify-between bg-habz-surface px-3 py-2 rounded-xl border border-white/10">
+                                    <span class="font-semibold text-white">💌 Undangan Online</span>
+                                    <span class="font-heading font-bold text-habz-cyan">75rb - 150rb</span>
+                                </div>
+                            </div>
+
+                            <a
+                                href="https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20tanya%20jasa%20digital"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-3d btn-3d-green w-full py-2.5 rounded-xl font-heading font-bold text-xs flex items-center justify-center gap-2"
+                            >
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>Order Instan via WA</span>
+                            </a>
+                        </div>
+
+                        <!-- Home Bar -->
+                        <div class="w-24 h-1 bg-white/30 rounded-full mx-auto mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5 LAYANAN JASA DIGITAL HABZ ==================== -->
+        <section id="layanan" class="py-14 sm:py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal-3d">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-habz-cyan/15 border border-habz-cyan/40 text-habz-cyan font-heading font-bold text-xs uppercase tracking-wider mb-3">
+                        Daftar Layanan Unggulan
+                    </span>
+                    <h2 class="heading-3d font-heading font-bold text-3xl sm:text-5xl text-white">
+                        5 JASA DIGITAL <span class="text-habz-yellow">SIAP PAKAI</span>
+                    </h2>
+                    <p class="text-white/75 text-sm sm:text-base mt-3">
+                        Pilih layanan sesuai kebutuhan usahamu. Klik tombol WhatsApp di tiap card untuk langsung konsultasi &amp; pesan.
+                    </p>
+                </div>
+
+                <!-- Dynamic Services Container (Rendered from Firestore "layanan_habz") -->
+                <div id="servicesContainer" class="space-y-8">
+                    <!-- Loading skeleton while Firestore syncs -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="h-72 rounded-3xl bg-habz-card border border-white/10 animate-pulse"></div>
+                        <div class="h-72 rounded-3xl bg-habz-card border border-white/10 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PORTOFOLIO + 3D PHONE PREVIEW MIE JEBEW ==================== -->
+        <section id="portofolio" class="py-14 sm:py-20 bg-habz-surface/50 border-y border-white/10 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal-3d">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-habz-purple/25 border border-habz-purple text-habz-cyan font-heading font-bold text-xs uppercase tracking-wider mb-3">
+                        Hasil Karya Nyata
+                    </span>
+                    <h2 class="heading-3d font-heading font-bold text-3xl sm:text-5xl text-white">
+                        PORTOFOLIO <span class="text-habz-cyan">TERBAIK</span>
+                    </h2>
+                </div>
+
+                <div class="tilt-stage card-3d card-3d-featured rounded-[32px] bg-gradient-to-br from-habz-card via-[#222042] to-habz-surface border-2 border-habz-purple/60 p-5 sm:p-8 lg:p-10 reveal-3d" data-tilt="true" data-tilt-max="5">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+                        <!-- Left: Portfolio Info + Spicy Noodle Visual + Action Buttons -->
+                        <div class="lg:col-span-7 space-y-5">
+                            <div class="flex flex-wrap items-center gap-2.5">
+                                <span class="px-3 py-1 rounded-full bg-habz-yellow text-habz-dark font-heading font-bold text-xs uppercase">
+                                    Featured Project
+                                </span>
+                                <span class="px-3 py-1 rounded-full bg-white/10 text-habz-yellow font-heading font-bold text-xs flex items-center gap-1">
+                                    <i class="fa-solid fa-star"></i> Rating 4.9 / 5.0
+                                </span>
+                            </div>
+
+                            <h3 class="heading-3d-cyan font-heading font-bold text-2xl sm:text-4xl text-white leading-tight">
+                                Mie Jebew Teh Encuy - Web Warung Lengkap
+                            </h3>
+
+                            <p class="text-white/80 text-sm sm:text-base leading-relaxed">
+                                Website warung makan modern lengkap dengan katalog menu pedas, pilihan level pedas, keranjang belanja, halaman admin, dan order masuk otomatis ke WhatsApp.
+                            </p>
+
+                            <!-- Custom High-Impact Spicy Noodle SVG Illustration -->
+                            <div class="rounded-2xl bg-habz-dark/90 border border-white/10 p-3.5 sm:p-4 flex items-center gap-4">
+                                <div class="w-24 h-20 sm:w-28 sm:h-24 rounded-2xl overflow-hidden shrink-0 border border-red-500/30 bg-[#1B0D12] flex items-center justify-center">
+                                    <svg viewBox="0 0 160 120" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi Mie Pedas Menggugah Selera">
+                                        <defs>
+                                            <radialGradient id="bowlGlow" cx="50%" cy="45%" r="55%">
+                                                <stop offset="0%" stop-color="#FF3B1F" stop-opacity="0.45" />
+                                                <stop offset="100%" stop-color="#1B0D12" stop-opacity="0" />
+                                            </radialGradient>
+                                            <linearGradient id="noodleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFE600" />
+                                                <stop offset="100%" stop-color="#FF7A00" />
+                                            </linearGradient>
+                                            <linearGradient id="chiliOilGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                <stop offset="0%" stop-color="#FF2A1A" />
+                                                <stop offset="100%" stop-color="#9E0B0F" />
+                                            </linearGradient>
+                                        </defs>
+                                        <circle cx="80" cy="62" r="54" fill="url(#bowlGlow)" />
+                                        <!-- Heat Waves -->
+                                        <path d="M52 24 Q46 15 53 7" stroke="#FFE600" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8" />
+                                        <path d="M80 20 Q86 11 79 4" stroke="#FF7A00" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.85" />
+                                        <path d="M108 24 Q102 15 109 7" stroke="#FFE600" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8" />
+                                        <!-- Noodle Strands -->
+                                        <path d="M36 58 Q58 32 82 54 T124 56" stroke="url(#noodleGrad)" stroke-width="6" stroke-linecap="round" fill="none" />
+                                        <path d="M40 65 Q65 42 88 60 T120 62" stroke="#FFD000" stroke-width="5" stroke-linecap="round" fill="none" />
+                                        <path d="M46 50 Q72 28 96 48" stroke="#FF9900" stroke-width="4.5" stroke-linecap="round" fill="none" />
+                                        <!-- Chili Oil & Chili Slices -->
+                                        <circle cx="62" cy="52" r="4.5" fill="#FF2414" />
+                                        <circle cx="96" cy="50" r="4" fill="#FF2414" />
+                                        <circle cx="79" cy="44" r="3.5" fill="#FFE600" />
+                                        <!-- Bowl -->
+                                        <path d="M26 62 H134 C132 92 108 106 80 106 C52 106 28 92 26 62 Z" fill="url(#chiliOilGrad)" stroke="#FF6B4A" stroke-width="2" />
+                                        <ellipse cx="80" cy="62" rx="54" ry="8" fill="#FF4D29" opacity="0.55" />
+                                    </svg>
+                                </div>
+                                <div class="space-y-1">
+                                    <p class="font-heading font-bold text-sm sm:text-base text-habz-yellow">Mie Pedas Chilli Oil &amp; Keranjang WA</p>
+                                    <p class="text-xs text-white/75">Cocok untuk warung mie, seblak, bakso, ayam geprek, kopi, dan aneka kuliner.</p>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons: Saya Mau Kayak Gini + Lihat Website Asli + Bagikan Link -->
+                            <div class="flex flex-wrap items-center gap-3 pt-1">
+                                <a
+                                    href="https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20web%20kayak%20Mie%20Jebew"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn-3d btn-3d-yellow px-5 py-3.5 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2"
+                                >
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <span>Saya Mau Kayak Gini!</span>
+                                </a>
+
+                                <a
+                                    href="https://mie-jebew-enak.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn-3d btn-3d-cyan px-5 py-3.5 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2"
+                                >
+                                    <i class="fa-solid fa-up-right-from-square"></i>
+                                    <span>LIHAT WEBSITE ASLI</span>
+                                </a>
+
+                                <button
+                                    type="button"
+                                    onclick="copyDemoLink()"
+                                    class="btn-3d btn-3d-purple px-5 py-3.5 rounded-2xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2"
+                                >
+                                    <i class="fa-solid fa-copy"></i>
+                                    <span id="copyDemoLinkText">BAGIKAN LINK</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right: 3D Tilt Smartphone Preview of Mie Jebew (Click opens live demo) -->
+                        <div class="lg:col-span-5 flex flex-col items-center justify-center tilt-stage">
+                            <p class="text-xs font-heading font-bold text-habz-cyan uppercase tracking-wider mb-3 text-center">
+                                Contoh Web Warung - Klik untuk lihat live demo
+                            </p>
+
+                            <a
+                                href="https://mie-jebew-enak.vercel.app/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-tilt="true"
+                                data-tilt-max="14"
+                                title="Contoh Web Warung - Klik untuk lihat live demo"
+                                class="phone-3d block w-[265px] sm:w-[290px] rounded-[40px] bg-gradient-to-b from-[#332F5C] to-[#121222] p-3 border-2 border-habz-yellow/50 group"
+                            >
+                                <div class="w-20 h-4 bg-habz-dark rounded-b-xl mx-auto mb-2"></div>
+
+                                <div class="rounded-[28px] overflow-hidden bg-[#FFF5E6] text-[#1A1A1A] border border-white/15">
+                                    <!-- Simulated Live Demo Topbar -->
+                                    <div class="bg-[#D92B2B] text-white px-3.5 py-2.5 flex items-center justify-between">
+                                        <span class="font-heading font-bold text-xs tracking-tight">🌶️ MIE JEBEW TEH ENCUY</span>
+                                        <span class="bg-[#FFE600] text-[#0F0F1A] text-[9px] font-extrabold px-2 py-0.5 rounded-full">LIVE DEMO</span>
+                                    </div>
+
+                                    <!-- Simulated Menu Preview -->
+                                    <div class="p-3.5 space-y-2.5">
+                                        <div class="rounded-2xl bg-gradient-to-r from-[#D92B2B] to-[#FF7A00] p-3 text-white">
+                                            <p class="text-[10px] font-bold uppercase opacity-90">Pedasnya Nampol!</p>
+                                            <p class="font-heading font-bold text-sm mt-0.5">Mie Jebew Level 1–5</p>
+                                            <p class="text-[11px] font-extrabold text-[#FFE600] mt-1">Rp 12.000 • Best Seller</p>
+                                        </div>
+
+                                        <div class="grid grid-cols-2 gap-2 text-left">
+                                            <div class="bg-white rounded-xl p-2 shadow-sm border border-orange-100">
+                                                <p class="font-bold text-[11px] text-[#1A1A1A] truncate">Pangsit Chilli Oil</p>
+                                                <p class="text-[10px] font-extrabold text-[#D92B2B]">Rp 12.000</p>
+                                            </div>
+                                            <div class="bg-white rounded-xl p-2 shadow-sm border border-orange-100">
+                                                <p class="font-bold text-[11px] text-[#1A1A1A] truncate">Seblak Prasmanan</p>
+                                                <p class="text-[10px] font-extrabold text-[#FF7A00]">Custom Topping</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="w-full py-2 rounded-xl bg-[#16BA52] text-white font-heading font-bold text-[11px] text-center flex items-center justify-center gap-1.5 group-hover:brightness-110 transition-all">
+                                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                            <span>Buka mie-jebew-enak.vercel.app</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="w-20 h-1 bg-white/30 rounded-full mx-auto mt-2.5"></div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ULASAN PELANGGAN JASA DIGITAL HABZ ==================== -->
+        <section id="ulasan" class="py-14 sm:py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 reveal-3d">
+                    <div>
+                        <span class="inline-block px-3.5 py-1 rounded-full bg-habz-yellow/15 border border-habz-yellow/40 text-habz-yellow font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                            Kata Mereka Tentang Habz
+                        </span>
+                        <h2 class="heading-3d font-heading font-bold text-3xl sm:text-5xl text-white">
+                            ULASAN PELANGGAN <span class="text-habz-yellow">JASA DIGITAL HABZ</span>
+                        </h2>
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="openReviewModal()"
+                        class="btn-3d btn-3d-yellow px-6 py-3.5 rounded-2xl font-heading font-bold text-sm flex items-center justify-center gap-2 self-start md:self-auto"
+                    >
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>Tulis Ulasan</span>
+                    </button>
+                </div>
+
+                <!-- 3 Testimoni Lama (Selalu Tampil di Bagian Atas) -->
+                <div class="space-y-3 reveal-3d">
+                    <p class="text-xs font-heading font-bold uppercase tracking-wider text-habz-cyan">
+                        Testimoni Pilihan Pelanggan
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <!-- Testimoni 1 -->
+                        <div class="tilt-stage">
+                            <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-habz-purple/40 p-5 flex flex-col justify-between space-y-4">
+                                <div class="space-y-2.5">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-[#FFE600] text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-habz-cyan">Verified</span>
+                                    </div>
+                                    <p class="text-white/90 text-sm leading-relaxed italic">
+                                        "Baru 1 hari jadi, langsung bisa terima order dari WA. Gokil!"
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-white/10">
+                                    <p class="font-heading font-bold text-sm text-white">Rizky</p>
+                                    <p class="text-xs text-habz-yellow font-semibold">Warung Seblak Bogor</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 2 -->
+                        <div class="tilt-stage">
+                            <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-habz-cyan/40 p-5 flex flex-col justify-between space-y-4">
+                                <div class="space-y-2.5">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-[#FFE600] text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-habz-cyan">Verified</span>
+                                    </div>
+                                    <p class="text-white/90 text-sm leading-relaxed italic">
+                                        "Landing page-nya cakep, yang chat WA jadi nambah banyak."
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-white/10">
+                                    <p class="font-heading font-bold text-sm text-white">Sinta</p>
+                                    <p class="text-xs text-habz-cyan font-semibold">Olshop Baju</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimoni 3 -->
+                        <div class="tilt-stage">
+                            <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-habz-yellow/40 p-5 flex flex-col justify-between space-y-4">
+                                <div class="space-y-2.5">
+                                    <div class="flex items-center justify-between">
+                                        <div class="text-[#FFE600] text-sm">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <span class="text-[11px] font-bold text-habz-cyan">Verified</span>
+                                    </div>
+                                    <p class="text-white/90 text-sm leading-relaxed italic">
+                                        "Undangannya elegan banget, padahal harganya murah."
+                                    </p>
+                                </div>
+                                <div class="pt-3 border-t border-white/10">
+                                    <p class="font-heading font-bold text-sm text-white">Andi</p>
+                                    <p class="text-xs text-habz-yellow font-semibold">Nikahan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Realtime Firestore Reviews ("ulasan_habz") -->
+                <div class="space-y-4 reveal-3d">
+                    <div class="flex items-center justify-between">
+                        <p class="text-xs font-heading font-bold uppercase tracking-wider text-habz-yellow">
+                            Ulasan Terbaru dari Firestore (<span id="firestoreReviewCount">0</span>)
+                        </p>
+                    </div>
+
+                    <div id="firestoreReviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                        <div class="col-span-full text-center py-8 text-white/60 text-sm">
+                            Memuat ulasan dari Firestore...
+                        </div>
+                    <div id="firestoreReviewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CARA ORDER ==================== -->
+        <section id="cara-order" class="py-14 sm:py-20 bg-habz-surface/60 border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 reveal-3d">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-habz-cyan/15 border border-habz-cyan/40 text-habz-cyan font-heading font-bold text-xs uppercase tracking-wider mb-2">
+                        Proses Cepat &amp; Simpel
+                    </span>
+                    <h2 class="heading-3d font-heading font-bold text-3xl sm:text-4xl text-white">
+                        CARA <span class="text-habz-cyan">ORDER</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal-3d">
+                    <div class="tilt-stage">
+                        <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-white/10 p-5 space-y-3">
+                            <div class="w-11 h-11 rounded-2xl bg-habz-purple text-white font-heading font-bold text-lg flex items-center justify-center shadow-lg shadow-habz-purple/40">
+                                1
+                            </div>
+                            <h3 class="font-heading font-bold text-base text-white">Klik tombol jasa yang kamu mau</h3>
+                            <p class="text-xs text-white/70 leading-relaxed">Pilih paket atau layanan yang paling pas dengan kebutuhanmu.</p>
+                        </div>
+                    </div>
+
+                    <div class="tilt-stage">
+                        <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-white/10 p-5 space-y-3">
+                            <div class="w-11 h-11 rounded-2xl bg-habz-cyan text-habz-dark font-heading font-bold text-lg flex items-center justify-center shadow-lg shadow-habz-cyan/30">
+                                2
+                            </div>
+                            <h3 class="font-heading font-bold text-base text-white">Chat WA otomatis kebuka</h3>
+                            <p class="text-xs text-white/70 leading-relaxed">Langsung terhubung ke WhatsApp Habz dengan format pesan siap kirim.</p>
+                        </div>
+                    </div>
+
+                    <div class="tilt-stage">
+                        <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-white/10 p-5 space-y-3">
+                            <div class="w-11 h-11 rounded-2xl bg-habz-yellow text-habz-dark font-heading font-bold text-lg flex items-center justify-center shadow-lg shadow-habz-yellow/30">
+                                3
+                            </div>
+                            <h3 class="font-heading font-bold text-base text-white">Kirim nama usaha + mau paket yang mana + mau domain Vercel atau Netlify</h3>
+                            <p class="text-xs text-white/70 leading-relaxed">Sertakan detail singkat supaya pengerjaan makin cepat dan tepat.</p>
+                        </div>
+                    </div>
+
+                    <div class="tilt-stage">
+                        <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-white/10 p-5 space-y-3">
+                            <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white font-heading font-bold text-lg flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                                4
+                            </div>
+                            <h3 class="font-heading font-bold text-base text-white">Habz kerjain, kamu tinggal tunggu jadi</h3>
+                            <p class="text-xs text-white/70 leading-relaxed">Link website segera dikirim setelah selesai dikerjakan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER ==================== -->
+        <footer class="bg-[#0A0A13] border-t border-white/10 pt-12 pb-24 sm:pb-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="space-y-1.5">
+                    <h3 class="font-heading font-bold text-xl sm:text-2xl text-white">JASA DIGITAL HABZ</h3>
+                    <p class="text-sm text-white/80">WA <a href="https://wa.me/6285891778068" target="_blank" rel="noopener noreferrer" class="text-habz-cyan font-bold hover:underline">085891778068</a> • Melayani Seluruh Indonesia</p>
+                    <p class="text-xs text-habz-yellow font-semibold">Online 08.00 - 21.00 WIB • Harga Pelajar, Kualitas Pro. 1 Hari Jadi.</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button type="button" onclick="openReviewModal()" class="btn-3d btn-3d-yellow px-4 py-2.5 rounded-xl font-heading font-bold text-xs">
+                        <i class="fa-solid fa-star mr-1"></i> Tulis Ulasan
+                    </button>
+                    <button type="button" onclick="switchMode('admin')" class="btn-3d btn-3d-dark px-4 py-2.5 rounded-xl font-heading font-bold text-xs">
+                        <i class="fa-solid fa-lock mr-1 text-habz-cyan"></i> Login Admin
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ===================================================================== -->
+    <!-- MODE ADMIN (LOGIN & DASHBOARD)                                        -->
+    <!-- ===================================================================== -->
+    <section id="adminView" class="hidden min-h-screen py-10 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+
+            <!-- Admin Login Card -->
+            <div id="adminLoginBox" class="max-w-md mx-auto card-3d rounded-3xl bg-habz-card border border-habz-purple/50 p-6 sm:p-8 space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-14 h-14 rounded-2xl bg-habz-purple/25 border border-habz-cyan/40 flex items-center justify-center mx-auto text-habz-cyan text-2xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h2 class="heading-3d font-heading font-bold text-2xl sm:text-3xl text-white">Login Admin Habz</h2>
+                    <p class="text-xs sm:text-sm text-white/70">Kelola layanan (<code class="text-habz-cyan">layanan_habz</code>) &amp; ulasan (<code class="text-habz-yellow">ulasan_habz</code>)</p>
+                </div>
+
+                <div id="adminLoginError" class="hidden p-3.5 rounded-2xl bg-red-500/20 border border-red-500 text-red-200 text-xs sm:text-sm font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-circle-exclamation text-red-400"></i>
+                    <span>Username atau password salah!</span>
+                </div>
+
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-heading font-bold uppercase text-white/80 mb-1.5">Username</label>
+                        <input
+                            type="text"
+                            id="adminUserInput"
+                            required
+                            placeholder="Masukkan username"
+                            class="w-full px-4 py-3 rounded-2xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm font-semibold text-white"
+                        />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-heading font-bold uppercase text-white/80 mb-1.5">Password</label>
+                        <input
+                            type="password"
+                            id="adminPassInput"
+                            required
+                            placeholder="Masukkan password"
+                            class="w-full px-4 py-3 rounded-2xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm font-semibold text-white"
+                        />
+                    </div>
+
+                    <button type="submit" class="btn-3d btn-3d-purple w-full py-3.5 rounded-2xl font-heading font-bold text-sm text-white">
+                        Masuk Dashboard Admin
+                    </button>
+                </form>
+
+                <button type="button" onclick="switchMode('buyer')" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-bold text-white/75">
+                    ← Kembali ke Halaman Pembeli
+                </button>
+            </div>
+
+            <!-- Admin Dashboard (Visible After Login) -->
+            <div id="adminDashboardBox" class="hidden space-y-6">
+                <div class="card-3d rounded-3xl bg-habz-card border border-white/15 p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="inline-block px-3 py-0.5 rounded-full bg-habz-cyan/20 text-habz-cyan font-heading font-bold text-xs uppercase mb-1">
+                            Dashboard Admin • Realtime Firestore
+                        </span>
+                        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-white">Kelola Layanan &amp; Ulasan</h2>
+                    </div>
+
+                    <button type="button" onclick="handleAdminLogout()" class="btn-3d btn-3d-red px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center justify-center gap-2 self-start sm:self-auto">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+
+                <!-- Admin Navigation Tabs -->
+                <div class="flex flex-wrap gap-2.5">
+                    <button
+                        type="button"
+                        id="adminTabServicesBtn"
+                        onclick="switchAdminSection('services')"
+                        class="btn-3d btn-3d-purple px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2"
+                    >
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>Kelola Layanan (<span id="adminServiceCount">0</span>)</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        id="adminTabReviewsBtn"
+                        onclick="switchAdminSection('reviews')"
+                        class="btn-3d btn-3d-dark px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2"
+                    >
+                        <i class="fa-solid fa-comments text-habz-yellow"></i>
+                        <span>Kelola Ulasan (<span id="adminReviewCount">0</span>)</span>
+                    </button>
+                </div>
+
+                <!-- ==================== ADMIN SECTION 1: KELOLA LAYANAN ==================== -->
+                <div id="adminSectionServices" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <!-- Add / Edit Service Form -->
+                    <div class="lg:col-span-5 card-3d rounded-3xl bg-habz-card border border-habz-purple/40 p-5 sm:p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 id="serviceFormTitle" class="font-heading font-bold text-lg text-habz-yellow">Tambah Layanan Baru</h3>
+                            <button type="button" id="cancelServiceEditBtn" onclick="resetServiceForm()" class="hidden text-xs font-bold text-habz-cyan hover:underline">
+                                Batal Edit
+                            </button>
+                        </div>
+
+                        <form onsubmit="handleSaveService(event)" class="space-y-3.5">
+                            <input type="hidden" id="editServiceDocId" />
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Nama Layanan *</label>
+                                <input type="text" id="svcTitle" required placeholder="Contoh: JASA 6 - DESAIN LOGO" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm text-white" />
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-white/80 mb-1">Range Harga *</label>
+                                    <input type="text" id="svcPriceRange" required placeholder="Contoh: 25rb - 75rb" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm text-white" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-white/80 mb-1">Warna Tombol WA</label>
+                                    <select id="svcBtnColor" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm font-bold text-white">
+                                        <option value="green">Hijau WhatsApp</option>
+                                        <option value="cyan">Biru Muda</option>
+                                        <option value="purple">Ungu</option>
+                                        <option value="orange">Oranye</option>
+                                        <option value="red">Merah</option>
+                                        <option value="yellow">Kuning</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Teks Tombol WA *</label>
+                                <input type="text" id="svcBtnText" required placeholder="Contoh: Pesan Desain Logo" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm text-white" />
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Link WhatsApp *</label>
+                                <input type="url" id="svcWaUrl" required placeholder="https://wa.me/6285891778068?text=..." class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-xs text-white" />
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Deskripsi *</label>
+                                <textarea id="svcDesc" rows="2" required placeholder="Deskripsi singkat layanan..." class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm text-white"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Fitur / Poin (1 baris = 1 poin)</label>
+                                <textarea id="svcFeatures" rows="3" placeholder="Desain Mobile Friendly&#10;Jadi 1 Hari&#10;Revisi Ramah" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-xs text-white"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Paket Harga (Opsional, format: Harga | Nama | Detail)</label>
+                                <textarea id="svcPackages" rows="2" placeholder="50rb | PAKET HEMAT | Web Basic, 5-8 Menu" class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-xs text-white"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-white/80 mb-1">Catatan Tambahan (Opsional)</label>
+                                <input type="text" id="svcNote" placeholder="Catatan penting di bawah paket..." class="w-full px-3.5 py-2.5 rounded-xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-xs text-white" />
+                            </div>
+
+                            <label class="flex items-center gap-2 text-xs font-bold text-habz-yellow cursor-pointer">
+                                <input type="checkbox" id="svcFeatured" class="rounded accent-habz-purple w-4 h-4" />
+                                <span>Jadikan Layanan Utama (Tampil Paling Besar)</span>
+                            </label>
+
+                            <button type="submit" class="btn-3d btn-3d-cyan w-full py-3.5 rounded-2xl font-heading font-bold text-sm">
+                                Simpan Layanan ke Firestore
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Existing Services List in Admin -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-heading font-bold text-lg text-white">Daftar Layanan Aktif</h3>
+                            <button type="button" onclick="resetSeedServices()" class="text-xs font-bold text-habz-cyan hover:underline">
+                                Pulihkan 5 Jasa Default Jika Kosong
+                            </button>
+                        </div>
+                        <div id="adminServicesList" class="space-y-4"></div>
+                    </div>
+                </div>
+
+                <!-- ==================== ADMIN SECTION 2: KELOLA ULASAN ==================== -->
+                <div id="adminSectionReviews" class="hidden card-3d rounded-3xl bg-habz-card border border-white/15 p-5 sm:p-6 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-habz-yellow">Kelola Ulasan Pelanggan (ulasan_habz)</h3>
+                            <p class="text-xs text-white/70">Lihat dan hapus ulasan dari pelanggan secara langsung.</p>
+                        </div>
+                    </div>
+
+                    <div id="adminReviewsList" class="space-y-3">
+                        <p class="text-sm text-white/60 py-6 text-center">Memuat daftar ulasan...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- MODAL TULIS ULASAN PEMBELI                                          -->
+    <!-- ===================================================================== -->
+    <div id="reviewModal" class="hidden fixed inset-0 z-[80] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="card-3d w-full max-w-md rounded-3xl bg-habz-card border border-habz-cyan/40 p-6 space-y-5 relative">
+            <button type="button" onclick="closeReviewModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center absolute top-4 right-4">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div>
+                <span class="text-xs font-heading font-bold uppercase text-habz-cyan">Bagikan Pengalamanmu</span>
+                <h3 class="heading-3d font-heading font-bold text-2xl text-white mt-0.5">Tulis Ulasan</h3>
+            </div>
+
+            <form onsubmit="handleSubmitReview(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-heading font-bold uppercase text-white/80 mb-1.5">Nama Kamu *</label>
+                    <input
+                        type="text"
+                        id="revNameInput"
+                        required
+                        placeholder="Contoh: Bima Pratama"
+                        class="w-full px-4 py-3 rounded-2xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm font-semibold text-white"
+                    />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-heading font-bold uppercase text-white/80 mb-1.5">Pilih Bintang (1 - 5) *</label>
+                    <input type="hidden" id="revRatingInput" value="5" />
+                    <div class="flex items-center gap-2 bg-habz-dark px-4 py-3 rounded-2xl border border-white/15">
+                        <button type="button" data-star="1" onclick="selectStarRating(1)" class="star-selector text-2xl text-[#FFE600] transition-transform hover:scale-110"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" data-star="2" onclick="selectStarRating(2)" class="star-selector text-2xl text-[#FFE600] transition-transform hover:scale-110"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" data-star="3" onclick="selectStarRating(3)" class="star-selector text-2xl text-[#FFE600] transition-transform hover:scale-110"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" data-star="4" onclick="selectStarRating(4)" class="star-selector text-2xl text-[#FFE600] transition-transform hover:scale-110"><i class="fa-solid fa-star"></i></button>
+                        <button type="button" data-star="5" onclick="selectStarRating(5)" class="star-selector text-2xl text-[#FFE600] transition-transform hover:scale-110"><i class="fa-solid fa-star"></i></button>
+                        <span id="starRatingLabel" class="ml-auto text-xs font-heading font-bold text-habz-yellow">5 / 5 Bintang</span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-heading font-bold uppercase text-white/80 mb-1.5">Tulis Ulasan *</label>
+                    <textarea
+                        id="revTextInput"
+                        rows="3"
+                        required
+                        placeholder="Ceritakan pengalamanmu pakai jasa digital Habz..."
+                        class="w-full px-4 py-3 rounded-2xl bg-habz-dark border border-white/15 focus:border-habz-cyan outline-none text-sm text-white"
+                    ></textarea>
+                </div>
+
+                <button type="submit" id="submitReviewBtn" class="btn-3d btn-3d-yellow w-full py-3.5 rounded-2xl font-heading font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Kirim Ulasan</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON (ALWAYS VISIBLE) ==================== -->
+    <a
+        href="https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20tanya%20jasa%20digital"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat WhatsApp Jasa Digital Habz"
+        title="Chat WhatsApp Habz"
+        class="btn-3d btn-3d-green fixed bottom-5 right-5 z-[70] w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-2xl sm:text-3xl shadow-2xl"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- ==================== FIREBASE FIRESTORE MODULE & APP LOGIC ==================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import {
+            getFirestore,
+            collection,
+            doc,
+            onSnapshot,
+            addDoc,
+            updateDoc,
+            deleteDoc,
+            getDocs,
+            query,
+            orderBy,
+            serverTimestamp
+        } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+        // ==================== EXACT FIREBASE CONFIG ====================
+        const firebaseConfig = {
+            apiKey: "AIzaSyBJCsaJB06WfKLBadc6yYwTmrafBLWzpzo",
+            authDomain: "mie-jebew-teh-encuy.firebaseapp.com",
+            projectId: "mie-jebew-teh-encuy",
+            storageBucket: "mie-jebew-teh-encuy.firebasestorage.app",
+            messagingSenderId: "289526106684",
+            appId: "1:289526106684:web:0e62faa215d0c188d8d139",
+            measurementId: "G-JE6EV7L91Q"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Dedicated Collections (Never use Mie Jebew's "ulasan" collection)
+        const SERVICES_COLLECTION = "layanan_habz";
+        const REVIEWS_COLLECTION = "ulasan_habz";
+
+        // Admin Credentials
+        const ADMIN_USER = "admin";
+        const ADMIN_PASS = "habz123";
+
+        // ==================== 5 INITIAL SERVICES DATA ====================
+        const INITIAL_SERVICES = [
+            {
+                order: 1,
+                featured: true,
+                title: "JASA 1 - WEB WARUNG / TOKO",
+                subtitle: "Jasa Utama",
+                priceRange: "Mulai 50rb - 400rb",
+                desc: "Web lengkap kayak web Mie Jebew. Ada menu, keranjang, admin, order langsung masuk WA.",
+                packages: [
+                    {
+                        price: "50rb",
+                        name: "PAKET HEMAT",
+                        detail: "Web Warung Basic. Domain BEBAS PILIH: .vercel.app ATAU .netlify.app. Cocok buat coba-coba, 5-8 Menu, Tombol Order WA."
+                    },
+                    {
+                        price: "100rb",
+                        name: "PAKET LENGKAP",
+                        detail: "Web Warung Lengkap. Domain BEBAS PILIH: .vercel.app ATAU .netlify.app. Fitur lebih lengkap: 15-20 Menu, Keranjang, Admin Edit Menu Sendiri, Desain Lebih Bagus."
+                    },
+                    {
+                        price: "200rb",
+                        name: "PAKET PRO",
+                        detail: "Domain .my.id / .biz.id (Domain Indonesia, Keliatan Profesional). Semua fitur Paket Lengkap + Free Logo."
+                    },
+                    {
+                        price: "400rb",
+                        name: "PAKET BISNIS",
+                        detail: "Domain .com (Paling Pro, Paling Dipercaya Customer). Semua fitur Paket Pro + Desain Premium + Prioritas Pengerjaan."
+                    }
+                ],
+                note: "Untuk Paket 50rb & 100rb, customer BEBAS PILIH mau domain Vercel (.vercel.app) atau Netlify (.netlify.app), sama-sama gratis dan sama-sama bagus.",
+                features: [
+                    "Free Tutorial Edit",
+                    "Order Masuk WA Otomatis",
+                    "Bisa Request Warna & Menu"
+                ],
+                btnText: "Pesan Web Warung / Toko",
+                btnColor: "green",
+                waUrl: "https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20pesan%20WEB%20WARUNG%20%2F%20TOKO.%20Saya%20mau%20paket%3A%20"
+            },
+            {
+                order: 2,
+                featured: false,
+                title: "JASA 2 - LANDING PAGE 1 HALAMAN",
+                subtitle: "",
+                priceRange: "50rb - 100rb",
+                desc: "1 Halaman jualan yang bikin orang langsung klik WA. Cocok buat jualan baju, skincare, makanan di TikTok.",
+                packages: [],
+                note: "",
+                features: [
+                    "Foto + Harga + Tombol WA",
+                    "Desain Mobile Friendly",
+                    "Jadi 1 Hari"
+                ],
+                btnText: "Pesan Landing Page",
+                btnColor: "cyan",
+                waUrl: "https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20pesan%20LANDING%20PAGE.%20Jualan%20saya%3A%20"
+            },
+            {
+                order: 3,
+                featured: false,
+                title: "JASA 3 - LINK BIO CUSTOM",
+                subtitle: "",
+                priceRange: "25rb - 50rb",
+                desc: "Bukan Linktree biasa. Link bio custom pake nama usaha kamu, ada foto, WA, Maps, Sosmed.",
+                packages: [],
+                note: "",
+                features: [
+                    "Desain Sesuai Brand Kamu",
+                    "Semua Link Dalam 1 Halaman",
+                    "Jadi 30 Menit"
+                ],
+                btnText: "Pesan Link Bio",
+                btnColor: "purple",
+                waUrl: "https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20pesan%20LINK%20BIO%20CUSTOM.%20Nama%20usaha%3A%20"
+            },
+            {
+                order: 4,
+                featured: false,
+                title: "JASA 4 - UNDANGAN ONLINE",
+                subtitle: "",
+                priceRange: "75rb - 150rb",
+                desc: "Undangan Nikah, Ultah, Sunatan yang bisa dibuka di HP. Ada countdown, galeri foto, tombol Maps & RSVP.",
+                packages: [],
+                note: "",
+                features: [
+                    "Desain Elegan / Lucu Bisa Request",
+                    "Musik + Countdown Otomatis",
+                    "Share Tinggal Kirim Link"
+                ],
+                btnText: "Pesan Undangan Online",
+                btnColor: "orange",
+                waUrl: "https://wa.me/6285891778068?text=Halo%20Habz%2C%20saya%20mau%20pesan%20UNDANGAN%20ONLINE.%20Acara%3A%20"
+            },
+            {
+                order: 5,
+                featured: false,
+                title: "JASA 5 - PERBAIKI WEB / FIX BUG",
+                subtitle: "",
+                priceRange: "30rb - 75rb",
+                desc: "Web kamu error? Tombol gak jalan? Gambar gak muncul? Kirim aja, Habz benerin sampe beres.",
+                packages: [],
+                note: "",
+                features: [
+                    "Per Bug 30rb - 75rb",
+                    "Cek Gratis Dulu",
+                    "Garansi 3 Hari"
+                ],
+                btnText: "Pesan Fix Bug",
+                btnColor: "red",
+                waUrl: "https://wa.me/6285891778068?text=Halo%20Habz%2C%20web%20saya%20error%20mau%20dibenerin.%20Errornya%3A%20"
+            }
+        ];
+
+        // ==================== APPLICATION STATE ====================
+        let servicesData = [];
+        let reviewsData = [];
+        let isAdminAuthenticated = false;
+        let hasSeededServices = false;
+
+        // ==================== TOAST HELPER ====================
+        function showToast(message, type = "info") {
+            const box = document.getElementById("toastBox");
+            if (!box) return;
+            const toast = document.createElement("div");
+            const colorClass =
+                type === "success"
+                    ? "bg-habz-card border-emerald-400 text-white"
+                    : type === "error"
+                    ? "bg-habz-card border-red-500 text-red-200"
+                    : "bg-habz-card border-habz-cyan text-white";
+            const icon =
+                type === "success"
+                    ? '<i class="fa-solid fa-circle-check text-emerald-400"></i>'
+                    : type === "error"
+                    ? '<i class="fa-solid fa-circle-exclamation text-red-400"></i>'
+                    : '<i class="fa-solid fa-circle-info text-habz-cyan"></i>';
+
+            toast.className = `pointer-events-auto border-l-4 ${colorClass} px-4 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition-all duration-300`;
+            toast.innerHTML = `${icon}<span>${message}</span>`;
+            box.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateX(16px)";
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // ==================== 3D POINTER TILT & SCROLL REVEAL ====================
+        function attachTiltListeners() {
+            document.querySelectorAll('[data-tilt="true"]').forEach((el) => {
+                if (el.dataset.tiltBound === "1") return;
+                el.dataset.tiltBound = "1";
+
+                const maxTilt = Number(el.dataset.tiltMax || 8);
+
+                const handleMove = (clientX, clientY) => {
+                    const rect = el.getBoundingClientRect();
+                    if (!rect.width || !rect.height) return;
+                    const normX = (clientX - rect.left) / rect.width - 0.5;
+                    const normY = (clientY - rect.top) / rect.height - 0.5;
+                    const rotateY = normX * maxTilt * 2;
+                    const rotateX = -normY * maxTilt * 2;
+                    el.style.transform = `rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`;
+                };
+
+                const resetTilt = () => {
+                    el.style.transform = "";
+                };
+
+                el.addEventListener("mousemove", (e) => handleMove(e.clientX, e.clientY));
+                el.addEventListener("mouseleave", resetTilt);
+                el.addEventListener("touchmove", (e) => {
+                    if (e.touches && e.touches[0]) {
+                        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+                el.addEventListener("touchend", resetTilt);
+            });
+        }
+
+        function initScrollReveal() {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                        }
+                    });
+                },
+                { threshold: 0.08 }
+            );
+
+            document.querySelectorAll(".reveal-3d").forEach((el) => observer.observe(el));
+        }
+
+        // ==================== MODE SWITCHING ([PEMBELI] / [ADMIN]) ====================
+        function switchMode(mode) {
+            const buyerView = document.getElementById("buyerView");
+            const adminView = document.getElementById("adminView");
+            const navLinks = document.getElementById("buyerNavLinks");
+            const btnBuyer = document.getElementById("btnModeBuyer");
+            const btnAdmin = document.getElementById("btnModeAdmin");
+
+            if (mode === "admin") {
+                buyerView.classList.add("hidden");
+                adminView.classList.remove("hidden");
+                if (navLinks) navLinks.classList.add("lg:hidden");
+
+                btnAdmin.className = "btn-3d btn-3d-yellow px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm flex items-center gap-1.5";
+                btnBuyer.className = "btn-3d btn-3d-dark px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm text-white/85 hover:text-habz-yellow flex items-center gap-1.5";
+
+                renderAdminAuthView();
+            } else {
+                adminView.classList.add("hidden");
+                buyerView.classList.remove("hidden");
+                if (navLinks) navLinks.classList.remove("lg:hidden");
+
+                btnBuyer.className = "btn-3d btn-3d-purple px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-1.5";
+                btnAdmin.className = "btn-3d btn-3d-dark px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl font-heading font-bold text-xs sm:text-sm text-white/85 hover:text-habz-yellow flex items-center gap-1.5";
+            }
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // ==================== BUTTON STYLE MAPPER ====================
+        function getButton3DClass(colorKey) {
+            const map = {
+                green: "btn-3d-green",
+                cyan: "btn-3d-cyan",
+                purple: "btn-3d-purple text-white",
+                orange: "btn-3d-orange",
+                red: "btn-3d-red",
+                yellow: "btn-3d-yellow"
+            };
+            return map[colorKey] || "btn-3d-green";
+        }
+
+        // ==================== RENDER BUYER SERVICES ====================
+        function renderBuyerServices() {
+            const container = document.getElementById("servicesContainer");
+            if (!container) return;
+
+            if (!servicesData.length) {
+                container.innerHTML = `
+                    <div class="card-3d rounded-3xl bg-habz-card border border-white/10 p-8 text-center space-y-3">
+                        <p class="font-heading font-bold text-lg text-habz-yellow">Belum ada layanan tersedia</p>
+                        <p class="text-sm text-white/70">Silakan tambahkan layanan melalui halaman Admin.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const featuredList = servicesData.filter((s) => s.featured || Number(s.order) === 1);
+            const regularList = servicesData.filter((s) => !(s.featured || Number(s.order) === 1));
+
+            let html = "";
+
+            // Featured Service(s) — Prominent Full-Width 3D Card
+            featuredList.forEach((svc) => {
+                const packagesHtml = Array.isArray(svc.packages) && svc.packages.length > 0
+                    ? `
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 my-5">
+                            ${svc.packages.map((pkg, idx) => {
+                                const letters = ["a", "b", "c", "d", "e", "f"];
+                                const prefix = letters[idx] ? `${letters[idx]}. ` : "";
+                                return `
+                                <div class="rounded-2xl bg-habz-dark/90 border border-white/12 hover:border-habz-cyan/50 p-4 space-y-1.5 transition-colors">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="font-heading font-bold text-sm sm:text-base text-habz-yellow">${prefix}${pkg.price} - ${pkg.name}</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-white/80 leading-relaxed">${pkg.detail}</p>
+                                </div>
+                                `;
+                            }).join("")}
+                        </div>
+                    `
+                    : "";
+
+                const noteHtml = svc.note
+                    ? `
+                        <div class="rounded-2xl bg-habz-cyan/10 border border-habz-cyan/35 px-4 py-3 text-xs sm:text-sm text-habz-cyan font-semibold leading-relaxed">
+                            <i class="fa-solid fa-circle-info mr-1.5"></i>${svc.note}
+                        </div>
+                    `
+                    : "";
+
+                const featuresHtml = Array.isArray(svc.features) && svc.features.length > 0
+                    ? `
+                        <div class="flex flex-wrap gap-2.5 pt-1">
+                            ${svc.features.map((f) => `
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white/90">
+                                    <i class="fa-solid fa-check text-habz-yellow"></i> ${f}
+                                </span>
+                            `).join("")}
+                        </div>
+                    `
+                    : "";
+
+                html += `
+                <div class="tilt-stage">
+                    <article data-tilt="true" data-tilt-max="4" class="card-3d card-3d-featured rounded-[32px] bg-gradient-to-br from-[#232047] via-habz-card to-habz-surface border-2 border-habz-yellow/55 p-6 sm:p-8 lg:p-10 space-y-5">
+                        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-4 border-b border-white/10 pb-5">
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="px-3 py-1 rounded-full bg-habz-yellow text-habz-dark font-heading font-bold text-xs uppercase">
+                                        ★ JASA UTAMA
+                                    </span>
+                                    <span class="px-3 py-1 rounded-full bg-habz-cyan/15 border border-habz-cyan/40 text-habz-cyan font-heading font-bold text-xs">
+                                        Bisa Pilih Domain
+                                    </span>
+                                </div>
+                                <h3 class="heading-3d font-heading font-bold text-2xl sm:text-4xl text-white">
+                                    ${svc.title}
+                                </h3>
+                                <p class="text-white/85 text-sm sm:text-base max-w-3xl leading-relaxed">
+                                    ${svc.desc}
+                                </p>
+                            </div>
+
+                            <div class="shrink-0 rounded-2xl bg-habz-dark/90 border border-habz-yellow/40 px-5 py-3.5 text-left lg:text-right">
+                                <p class="text-[11px] uppercase font-bold text-white/60">Kisaran Harga</p>
+                                <p class="font-heading font-bold text-2xl sm:text-3xl text-habz-yellow">${svc.priceRange}</p>
+                            </div>
+                        </div>
+
+                        ${packagesHtml}
+                        ${noteHtml}
+                        ${featuresHtml}
+
+                        <div class="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <a
+                                href="${svc.waUrl}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn-3d ${getButton3DClass(svc.btnColor)} w-full sm:w-auto px-7 py-4 rounded-2xl font-heading font-bold text-sm sm:text-base flex items-center justify-center gap-2.5"
+                            >
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>${svc.btnText}</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                `;
+            });
+
+            // Other Services Grid
+            if (regularList.length > 0) {
+                html += `<div class="grid grid-cols-1 md:grid-cols-2 gap-6">`;
+                regularList.forEach((svc) => {
+                    const featuresListHtml = Array.isArray(svc.features) && svc.features.length > 0
+                        ? `
+                            <ul class="space-y-2 text-xs sm:text-sm text-white/85">
+                                ${svc.features.map((f) => `
+                                    <li class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-circle-check text-habz-cyan shrink-0"></i>
+                                        <span>${f}</span>
+                                    </li>
+                                `).join("")}
+                            </ul>
+                        `
+                        : "";
+
+                    const extraPkgsHtml = Array.isArray(svc.packages) && svc.packages.length > 0
+                        ? `
+                            <div class="space-y-1.5 pt-2 border-t border-white/10">
+                                ${svc.packages.map((p) => `
+                                    <div class="text-xs text-white/80"><span class="font-bold text-habz-yellow">${p.price} - ${p.name}:</span> ${p.detail}</div>
+                                `).join("")}
+                            </div>
+                        `
+                        : "";
+
+                    html += `
+                    <div class="tilt-stage">
+                        <article data-tilt="true" data-tilt-max="7" class="card-3d h-full rounded-3xl bg-habz-card border border-white/12 hover:border-habz-purple/60 p-6 flex flex-col justify-between space-y-5">
+                            <div class="space-y-3.5">
+                                <div class="flex items-start justify-between gap-3">
+                                    <h3 class="font-heading font-bold text-xl sm:text-2xl text-white leading-snug">
+                                        ${svc.title}
+                                    </h3>
+                                    <span class="shrink-0 px-3 py-1 rounded-xl bg-habz-dark border border-habz-yellow/35 font-heading font-bold text-sm sm:text-base text-habz-yellow">
+                                        ${svc.priceRange}
+                                    </span>
+                                </div>
+
+                                <p class="text-xs sm:text-sm text-white/75 leading-relaxed">
+                                    ${svc.desc}
+                                </p>
+
+                                ${featuresListHtml}
+                                ${extraPkgsHtml}
+                            </div>
+
+                            <div class="pt-3 border-t border-white/10">
+                                <a
+                                    href="${svc.waUrl}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="btn-3d ${getButton3DClass(svc.btnColor)} w-full py-3.5 px-5 rounded-2xl font-heading font-bold text-sm flex items-center justify-center gap-2"
+                                >
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    <span>${svc.btnText}</span>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+
+            container.innerHTML = html;
+            attachTiltListeners();
+        }
+
+        // ==================== RENDER FIRESTORE REVIEWS ("ulasan_habz") ====================
+        function formatReviewDate(ts) {
+            if (!ts) return "Baru saja";
+            const dateObj = typeof ts.toDate === "function" ? ts.toDate() : new Date(ts);
+            if (isNaN(dateObj.getTime())) return "Baru saja";
+            return dateObj.toLocaleDateString("id-ID", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            });
+        }
+
+        function renderFirestoreReviews() {
+            const grid = document.getElementById("firestoreReviewsGrid");
+            const countBadge = document.getElementById("firestoreReviewCount");
+            if (countBadge) countBadge.textContent = String(reviewsData.length);
+
+            if (!grid) return;
+
+            if (!reviewsData.length) {
+                grid.innerHTML = "";
+                return;
+            }
+
+            grid.innerHTML = reviewsData.map((rev) => {
+                const stars = Math.min(5, Math.max(1, Number(rev.rating || 5)));
+                const starIcons = Array.from({ length: 5 }, (_, i) =>
+                    `<i class="fa-solid fa-star ${i < stars ? "text-[#FFE600]" : "text-white/15"}"></i>`
+                ).join("");
+
+                return `
+                <div class="tilt-stage">
+                    <div data-tilt="true" data-tilt-max="8" class="card-3d h-full rounded-3xl bg-habz-card border border-white/12 p-5 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="text-sm flex items-center gap-0.5">${starIcons}</div>
+                                <span class="text-[11px] text-white/55 font-semibold">${formatReviewDate(rev.createdAt)}</span>
+                            </div>
+                            <p class="text-sm text-white/90 leading-relaxed">"${rev.review || rev.text || ""}"</p>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                            <span class="font-heading font-bold text-sm text-habz-cyan">${rev.name || "Pelanggan"}</span>
+                            <span class="text-xs font-bold text-habz-yellow">${stars}.0 ★</span>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join("");
+
+            attachTiltListeners();
+        }
+
+        // ==================== REVIEW MODAL & SUBMIT TO FIRESTORE ====================
+        function openReviewModal() {
+            document.getElementById("reviewModal").classList.remove("hidden");
+            selectStarRating(5);
+        }
+
+        function closeReviewModal() {
+            document.getElementById("reviewModal").classList.add("hidden");
+        }
+
+        function selectStarRating(rating) {
+            const num = Math.min(5, Math.max(1, Number(rating || 5)));
+            document.getElementById("revRatingInput").value = String(num);
+            document.getElementById("starRatingLabel").textContent = `${num} / 5 Bintang`;
+
+            document.querySelectorAll(".star-selector").forEach((btn) => {
+                const s = Number(btn.dataset.star);
+                if (s <= num) {
+                    btn.classList.remove("text-white/20");
+                    btn.classList.add("text-[#FFE600]");
+                } else {
+                    btn.classList.remove("text-[#FFE600]");
+                    btn.classList.add("text-white/20");
+                }
+            });
+        }
+
+        async function handleSubmitReview(e) {
+            e.preventDefault();
+            const name = document.getElementById("revNameInput").value.trim();
+            const rating = Number(document.getElementById("revRatingInput").value || 5);
+            const reviewText = document.getElementById("revTextInput").value.trim();
+            const submitBtn = document.getElementById("submitReviewBtn");
+
+            if (!name || !reviewText) {
+                showToast("Nama dan ulasan wajib diisi!", "error");
+                return;
+            }
+
+            submitBtn.disabled = true;
+            try {
+                await addDoc(collection(db, REVIEWS_COLLECTION), {
+                    name,
+                    rating,
+                    review: reviewText,
+                    createdAt: serverTimestamp()
+                });
+
+                document.getElementById("revNameInput").value = "";
+                document.getElementById("revTextInput").value = "";
+                selectStarRating(5);
+                closeReviewModal();
+                showToast("Ulasan berhasil dikirim ke Firebase!", "success");
+            } catch (err) {
+                console.error("Error adding review:", err);
+                showToast("Gagal mengirim ulasan. Periksa koneksi / Firestore.", "error");
+            } finally {
+                submitBtn.disabled = false;
+            }
+        }
+
+        // ==================== COPY DEMO LINK ====================
+        async function copyDemoLink() {
+            const demoUrl = "https://mie-jebew-enak.vercel.app/";
+            let copied = false;
+
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(demoUrl);
+                    copied = true;
+                }
+            } catch (_) {
+                copied = false;
+            }
+
+            if (!copied) {
+                const tempInput = document.createElement("input");
+                tempInput.value = demoUrl;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    copied = document.execCommand("copy");
+                } catch (_) {
+                    copied = false;
+                }
+                tempInput.remove();
+            }
+
+            const label = document.getElementById("copyDemoLinkText");
+            if (copied) {
+                if (label) label.textContent = "TERSALIN!";
+                showToast("Link demo Mie Jebew berhasil disalin!", "success");
+                setTimeout(() => {
+                    if (label) label.textContent = "BAGIKAN LINK";
+                }, 2000);
+            } else {
+                showToast("Link: " + demoUrl, "info");
+            }
+        }
+
+        // ==================== ADMIN AUTH & DASHBOARD ====================
+        function renderAdminAuthView() {
+            const loginBox = document.getElementById("adminLoginBox");
+            const dashBox = document.getElementById("adminDashboardBox");
+
+            if (isAdminAuthenticated) {
+                loginBox.classList.add("hidden");
+                dashBox.classList.remove("hidden");
+                renderAdminServicesList();
+                renderAdminReviewsList();
+            } else {
+                loginBox.classList.remove("hidden");
+                dashBox.classList.add("hidden");
+                document.getElementById("adminLoginError").classList.add("hidden");
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById("adminUserInput").value.trim();
+            const pass = document.getElementById("adminPassInput").value;
+
+            if (user === ADMIN_USER && pass === ADMIN_PASS) {
+                isAdminAuthenticated = true;
+                document.getElementById("adminLoginError").classList.add("hidden");
+                renderAdminAuthView();
+                showToast("Login Admin berhasil!", "success");
+            } else {
+                document.getElementById("adminLoginError").classList.remove("hidden");
+                showToast("Username atau password salah!", "error");
+            }
+        }
+
+        function handleAdminLogout() {
+            isAdminAuthenticated = false;
+            document.getElementById("adminUserInput").value = "";
+            document.getElementById("adminPassInput").value = "";
+            switchMode("buyer");
+            showToast("Anda telah logout dari Admin", "info");
+        }
+
+        function switchAdminSection(section) {
+            const svcSec = document.getElementById("adminSectionServices");
+            const revSec = document.getElementById("adminSectionReviews");
+            const svcBtn = document.getElementById("adminTabServicesBtn");
+            const revBtn = document.getElementById("adminTabReviewsBtn");
+
+            if (section === "reviews") {
+                svcSec.classList.add("hidden");
+                revSec.classList.remove("hidden");
+                revBtn.className = "btn-3d btn-3d-yellow px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2";
+                svcBtn.className = "btn-3d btn-3d-dark px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2";
+                renderAdminReviewsList();
+            } else {
+                revSec.classList.add("hidden");
+                svcSec.classList.remove("hidden");
+                svcBtn.className = "btn-3d btn-3d-purple px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm text-white flex items-center gap-2";
+                revBtn.className = "btn-3d btn-3d-dark px-5 py-3 rounded-2xl font-heading font-bold text-xs sm:text-sm flex items-center gap-2";
+                renderAdminServicesList();
+            }
+        }
+
+        // ==================== ADMIN SERVICE CRUD ("layanan_habz") ====================
+        function renderAdminServicesList() {
+            const countEl = document.getElementById("adminServiceCount");
+            if (countEl) countEl.textContent = String(servicesData.length);
+
+            const listEl = document.getElementById("adminServicesList");
+            if (!listEl) return;
+
+            if (!servicesData.length) {
+                listEl.innerHTML = `<div class="rounded-2xl bg-habz-card border border-white/10 p-6 text-center text-sm text-white/70">Belum ada layanan di Firestore.</div>`;
+                return;
+            }
+
+            listEl.innerHTML = servicesData.map((svc) => `
+                <div class="rounded-2xl bg-habz-card border border-white/12 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="font-heading font-bold text-base text-white">${svc.title}</span>
+                            <span class="px-2.5 py-0.5 rounded-lg bg-habz-yellow/20 text-habz-yellow font-heading font-bold text-xs">${svc.priceRange}</span>
+                            ${svc.featured ? '<span class="px-2 py-0.5 rounded-lg bg-habz-cyan/20 text-habz-cyan text-[10px] font-bold uppercase">Utama</span>' : ""}
+                        </div>
+                        <p class="text-xs text-white/70 truncate">${svc.desc}</p>
+                        <p class="text-[11px] text-habz-cyan truncate">${svc.waUrl}</p>
+                    </div>
+
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button type="button" onclick="startEditService('${svc.id}')" class="btn-3d btn-3d-cyan px-3.5 py-2 rounded-xl font-heading font-bold text-xs">
+                            <i class="fa-solid fa-pen mr-1"></i> Edit
+                        </button>
+                        <button type="button" onclick="deleteServiceDoc('${svc.id}')" class="btn-3d btn-3d-red px-3.5 py-2 rounded-xl font-heading font-bold text-xs">
+                            <i class="fa-solid fa-trash mr-1"></i> Hapus
+                        </button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function startEditService(docId) {
+            const svc = servicesData.find((s) => s.id === docId);
+            if (!svc) return;
+
+            document.getElementById("serviceFormTitle").textContent = "Edit Layanan";
+            document.getElementById("cancelServiceEditBtn").classList.remove("hidden");
+            document.getElementById("editServiceDocId").value = svc.id;
+            document.getElementById("svcTitle").value = svc.title || "";
+            document.getElementById("svcPriceRange").value = svc.priceRange || "";
+            document.getElementById("svcBtnColor").value = svc.btnColor || "green";
+            document.getElementById("svcBtnText").value = svc.btnText || "";
+            document.getElementById("svcWaUrl").value = svc.waUrl || "";
+            document.getElementById("svcDesc").value = svc.desc || "";
+            document.getElementById("svcFeatures").value = Array.isArray(svc.features) ? svc.features.join("\n") : "";
+            document.getElementById("svcPackages").value = Array.isArray(svc.packages)
+                ? svc.packages.map((p) => `${p.price} | ${p.name} | ${p.detail}`).join("\n")
+                : "";
+            document.getElementById("svcNote").value = svc.note || "";
+            document.getElementById("svcFeatured").checked = Boolean(svc.featured);
+
+            document.getElementById("svcTitle").scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+
+        function resetServiceForm() {
+            document.getElementById("serviceFormTitle").textContent = "Tambah Layanan Baru";
+            document.getElementById("cancelServiceEditBtn").classList.add("hidden");
+            document.getElementById("editServiceDocId").value = "";
+            document.getElementById("svcTitle").value = "";
+            document.getElementById("svcPriceRange").value = "";
+            document.getElementById("svcBtnColor").value = "green";
+            document.getElementById("svcBtnText").value = "";
+            document.getElementById("svcWaUrl").value = "";
+            document.getElementById("svcDesc").value = "";
+            document.getElementById("svcFeatures").value = "";
+            document.getElementById("svcPackages").value = "";
+            document.getElementById("svcNote").value = "";
+            document.getElementById("svcFeatured").checked = false;
+        }
+
+        async function handleSaveService(e) {
+            e.preventDefault();
+            const docId = document.getElementById("editServiceDocId").value.trim();
+            const title = document.getElementById("svcTitle").value.trim();
+            const priceRange = document.getElementById("svcPriceRange").value.trim();
+            const btnColor = document.getElementById("svcBtnColor").value;
+            const btnText = document.getElementById("svcBtnText").value.trim();
+            const waUrl = document.getElementById("svcWaUrl").value.trim();
+            const desc = document.getElementById("svcDesc").value.trim();
+            const note = document.getElementById("svcNote").value.trim();
+            const featured = document.getElementById("svcFeatured").checked;
+
+            const features = document
+                .getElementById("svcFeatures")
+                .value.split("\n")
+                .map((line) => line.trim())
+                .filter(Boolean);
+
+            const packages = document
+                .getElementById("svcPackages")
+                .value.split("\n")
+                .map((line) => line.trim())
+                .filter(Boolean)
+                .map((line) => {
+                    const parts = line.split("|").map((p) => p.trim());
+                    return {
+                        price: parts[0] || "",
+                        name: parts[1] || "PAKET",
+                        detail: parts.slice(2).join(" | ") || ""
+                    };
+                });
+
+            const payload = {
+                title,
+                priceRange,
+                btnColor,
+                btnText,
+                waUrl,
+                desc,
+                note,
+                featured,
+                features,
+                packages
+            };
+
+            try {
+                if (docId) {
+                    await updateDoc(doc(db, SERVICES_COLLECTION, docId), payload);
+                    showToast("Layanan berhasil diperbarui!", "success");
+                } else {
+                    await addDoc(collection(db, SERVICES_COLLECTION), {
+                        ...payload,
+                        order: servicesData.length + 1
+                    });
+                    showToast("Layanan baru berhasil ditambahkan!", "success");
+                }
+                resetServiceForm();
+            } catch (err) {
+                console.error("Error saving service:", err);
+                showToast("Gagal menyimpan layanan ke Firestore.", "error");
+            }
+        }
+
+        async function deleteServiceDoc(docId) {
+            try {
+                await deleteDoc(doc(db, SERVICES_COLLECTION, docId));
+                showToast("Layanan berhasil dihapus.", "success");
+            } catch (err) {
+                console.error("Error deleting service:", err);
+                showToast("Gagal menghapus layanan.", "error");
+            }
+        }
+
+        // ==================== ADMIN REVIEW DELETE ("ulasan_habz") ====================
+        function renderAdminReviewsList() {
+            const countEl = document.getElementById("adminReviewCount");
+            if (countEl) countEl.textContent = String(reviewsData.length);
+
+            const listEl = document.getElementById("adminReviewsList");
+            if (!listEl) return;
+
+            if (!reviewsData.length) {
+                listEl.innerHTML = `<p class="text-sm text-white/60 py-6 text-center">Belum ada ulasan masuk di koleksi ulasan_habz.</p>`;
+                return;
+            }
+
+            listEl.innerHTML = reviewsData.map((rev) => {
+                const stars = Math.min(5, Math.max(1, Number(rev.rating || 5)));
+                return `
+                <div class="rounded-2xl bg-habz-dark/90 border border-white/12 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-heading font-bold text-sm text-white">${rev.name || "Pelanggan"}</span>
+                            <span class="text-xs font-bold text-[#FFE600]">${"★".repeat(stars)} (${stars}/5)</span>
+                            <span class="text-[11px] text-white/50">${formatReviewDate(rev.createdAt)}</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-white/85">"${rev.review || rev.text || ""}"</p>
+                    </div>
+
+                    <button type="button" onclick="deleteReviewDoc('${rev.id}')" class="btn-3d btn-3d-red px-4 py-2 rounded-xl font-heading font-bold text-xs shrink-0 self-start sm:self-auto">
+                        <i class="fa-solid fa-trash mr-1"></i> Hapus
+                    </button>
+                </div>
+                `;
+            }).join("");
+        }
+
+        async function deleteReviewDoc(docId) {
+            try {
+                await deleteDoc(doc(db, REVIEWS_COLLECTION, docId));
+                showToast("Ulasan berhasil dihapus.", "success");
+            } catch (err) {
+                console.error("Error deleting review:", err);
+                showToast("Gagal menghapus ulasan.", "error");
+            }
+        }
+
+        // ==================== FIRESTORE SEED & REALTIME LISTENERS ====================
+        async function seedServicesIfEmpty() {
+            if (hasSeededServices) return;
+            hasSeededServices = true;
+            try {
+                const snap = await getDocs(collection(db, SERVICES_COLLECTION));
+                if (snap.empty) {
+                    for (const svc of INITIAL_SERVICES) {
+                        await addDoc(collection(db, SERVICES_COLLECTION), svc);
+                    }
+                }
+            } catch (err) {
+                console.error("Seed error:", err);
+            }
+        }
+
+        async function resetSeedServices() {
+            hasSeededServices = false;
+            await seedServicesIfEmpty();
+            showToast("Pengecekan layanan default selesai.", "info");
+        }
+
+        function startRealtimeSync() {
+            // Realtime listener for "layanan_habz"
+            const servicesQuery = query(collection(db, SERVICES_COLLECTION), orderBy("order", "asc"));
+            onSnapshot(
+                servicesQuery,
+                (snapshot) => {
+                    const list = [];
+                    snapshot.forEach((docSnap) => {
+                        list.push({ id: docSnap.id, ...docSnap.data() });
+                    });
+                    servicesData = list;
+                    renderBuyerServices();
+                    if (isAdminAuthenticated) {
+                        renderAdminServicesList();
+                    }
+                },
+                (error) => {
+                    console.error("layanan_habz snapshot error:", error);
+                    // Fallback orderless snapshot in case order field is missing on custom docs
+                    onSnapshot(collection(db, SERVICES_COLLECTION), (snapFallback) => {
+                        const arr = [];
+                        snapFallback.forEach((d) => arr.push({ id: d.id, ...d.data() }));
+                        arr.sort((a, b) => Number(a.order || 99) - Number(b.order || 99));
+                        servicesData = arr;
+                        renderBuyerServices();
+                        if (isAdminAuthenticated) renderAdminServicesList();
+                    });
+                }
+            );
+
+            // Realtime listener for "ulasan_habz"
+            const reviewsQuery = query(collection(db, REVIEWS_COLLECTION), orderBy("createdAt", "desc"));
+            onSnapshot(
+                reviewsQuery,
+                (snapshot) => {
+                    const list = [];
+                    snapshot.forEach((docSnap) => {
+                        list.push({ id: docSnap.id, ...docSnap.data() });
+                    });
+                    reviewsData = list;
+                    renderFirestoreReviews();
+                    if (isAdminAuthenticated) {
+                        renderAdminReviewsList();
+                    }
+                },
+                (error) => {
+                    console.error("ulasan_habz snapshot error:", error);
+                    onSnapshot(collection(db, REVIEWS_COLLECTION), (snapFallback) => {
+                        const arr = [];
+                        snapFallback.forEach((d) => arr.push({ id: d.id, ...d.data() }));
+                        reviewsData = arr;
+                        renderFirestoreReviews();
+                        if (isAdminAuthenticated) renderAdminReviewsList();
+                    });
+                }
+            );
+        }
+
+        // ==================== EXPOSE HANDLERS TO WINDOW ====================
+        Object.assign(window, {
+            switchMode,
+            copyDemoLink,
+            openReviewModal,
+            closeReviewModal,
+            selectStarRating,
+            handleSubmitReview,
+            handleAdminLogin,
+            handleAdminLogout,
+            switchAdminSection,
+            startEditService,
+            resetServiceForm,
+            handleSaveService,
+            deleteServiceDoc,
+            deleteReviewDoc,
+            resetSeedServices
+        });
+
+        // ==================== INITIALIZE APP ====================
+        document.addEventListener("DOMContentLoaded", async () => {
+            attachTiltListeners();
+            initScrollReveal();
+            renderBuyerServices();
+            renderFirestoreReviews();
+
+            await seedServicesIfEmpty();
+            startRealtimeSync();
+        });
+    </script>
+</body>
+</html>
